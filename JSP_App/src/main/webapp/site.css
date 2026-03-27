@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root{
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+  --stroke: rgba(255,255,255,0.18);
+  --card: rgba(255,255,255,0.10);
+  --card2: rgba(255,255,255,0.14);
+  --shadow: 0 14px 40px rgba(0,0,0,0.40);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  animation: pageIn .35s ease both;
+  text-align: center;
+  padding: 125px 18px 90px;
+}
+
+@keyframes pageIn{
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    radial-gradient(1200px 600px at 20% 20%, rgba(255,255,255,0.16), transparent 55%),
+    radial-gradient(900px 500px at 80% 30%, rgba(255,255,255,0.10), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.78)),
+    url("images/Retete.png");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+  filter: blur(0px) saturate(1.05);
+  animation: soften 1.8s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes soften{
+  from { filter: blur(0px) saturate(1.05); }
+  to   { filter: blur(5px) saturate(1.02); }
+}
+
+body::after{
+  content: "Necula Adrian-Nicușor\A București 2025-2026";
+  white-space: pre;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("images/Sigla_Facultate_ETTI.webp");
+  background-repeat: no-repeat;
+  background-position: 28px 28px;
+  background-size: 92px auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 24px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-shadow: 0 10px 26px rgba(0,0,0,0.55);
+}
+
+@media (max-width: 720px){
+  body::after{
+    background-size: 72px auto;
+    font-size: 14px;
+  }
+}
+
+hr{ display: none; }
+
+h1, h2{
+  margin: 0 0 16px;
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+h2{ font-size: 28px; }
+
+p{
+  margin: 10px 0;
+  text-align: center;
+}
+
+a{
+  color: var(--text);
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 18px 10px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+li{ margin: 0; }
+
+table{
+  width: min(1100px, 95vw);
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(180deg, var(--card2), var(--card));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+td, th{
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+tr:hover td{ background: rgba(255,255,255,0.06); }
+
+input[type="checkbox"], input[type="radio"]{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 0;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.25);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]::before, input[type="radio"]::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: transform .12s ease;
+  background: rgba(255,255,255,0.92);
+}
+
+input[type="checkbox"]:checked::before, input[type="radio"]:checked::before{
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus, input[type="radio"]:focus{
+  outline: 2px solid rgba(255,255,255,0.35);
+  outline-offset: 2px;
+}
+
+input[type="text"], input[type="number"], select{
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.25);
+  color: var(--text);
+  outline: none;
+}
+
+p a, 
+ul a, 
+input[type="submit"], 
+button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 250px;
+  height: 54px;
+  padding: 0 20px;
+  vertical-align: middle;
+  line-height: 1.15;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,0.14);
+  color: var(--text);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+p a:hover, 
+ul a:hover, 
+input[type="submit"]:hover, 
+button[type="submit"]:hover {
+  background: rgba(255,255,255,0.20);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+p a:active, 
+ul a:active, 
+input[type="submit"]:active, 
+button[type="submit"]:active {
+  background: rgba(255,255,255,0.26);
+  transform: translateY(0);
+}
+
+input[type="submit"][value*="Șterge"]:hover,
+button[type="submit"]:hover:where(:has(text*="Șterge")) {
+  background: rgba(220, 53, 69, 0.85) !important;
+  border-color: rgba(220, 53, 69, 1) !important;
+  box-shadow: 0 5px 20px rgba(220, 53, 69, 0.4) !important;
+}
+
+input[type="submit"][value*="Salvează"]:hover,
+button[type="submit"]:hover:where(:has(text*="Salvează")) {
+  background: rgba(40, 167, 69, 0.85) !important;
+  border-color: rgba(40, 167, 69, 1) !important;
+  box-shadow: 0 5px 20px rgba(40, 167, 69, 0.4) !important;
+}
+
+@media (max-width: 980px){
+  body{ padding: 105px 14px 80px; }
+  ul{ display: block; margin: 12px auto; }
+  
+  p a, 
+  ul a, 
+  input[type="submit"], 
+  button[type="submit"] {
+    width: 92vw;
+    max-width: 92vw;
+    height: 54px;
+  }
+  
+  h2{ font-size: 24px; }
+}
